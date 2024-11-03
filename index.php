@@ -1,3 +1,35 @@
+<?php
+  require 'backend/bdConnection.php';
+
+  $personalInfo = null;
+  $skills = null;
+  try {
+    // Query for personal info 
+    $statement = $pdo->prepare("SELECT * FROM `personal-info` WHERE 1");
+    $statement->execute();
+    $personalInfo = $statement->fetch(PDO::FETCH_ASSOC);
+
+    if(!$personalInfo){
+      echo "No personal data found";
+    }
+
+    // Query for skills 
+    $statement = $pdo->prepare("SELECT * FROM `skills` WHERE 1");
+    $statement->execute();
+    $skills = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+    if(!$skills){
+      echo "No skill data found";
+    }
+
+    
+  } catch (PDOException $e) {
+    echo "Query failed: " . $e->getMessage();
+  }
+
+  // echo '<pre>'; var_dump($skills); echo '</pre>';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,6 +60,7 @@
   <!-- <link rel="stylesheet" href="../css/navAndHome.css" /> -->
   <link rel="stylesheet" href="css/profile.css" />
   <link rel="stylesheet" href="css/aboutMeDetail.css">
+  <link rel="stylesheet" href="css/footer.css">
   <title>Hasibul Hasan Rupok</title>
 </head>
 
@@ -65,8 +98,8 @@
       <div class="justify-items-center homeSplit w-1/2">
         <div class="vertically-Center">
           <p>Hello i'm</p>
-          <h1 class="text-2xl font-bold name">Hasibul Hasan Rupok</h1>
-          <p>Lecturer | Developer | Student</p>
+          <h1 class="text-2xl font-bold name"><?php echo $personalInfo['name']; ?></h1>
+          <p><?php echo $personalInfo['title']; ?></p>
 
           <div class="md:inline twoButtonParent">
             <!-- <button class="twoButton" id="moreBBtn" href="pages/profile.html">More About Me</button> -->
@@ -78,7 +111,13 @@
 
       <div class="w-1/2 homeSplit homeImage">
         <div class="vertically-Center">
-          <img class="mx-auto dp-1" id="homeDp" src="files/dp2.png" alt="" />
+          
+          <?php if (isset($personalInfo['image1']) && $personalInfo['image1']): ?>
+            <img class="mx-auto dp-1" id="homeDp" src="<?php echo $personalInfo['image1']; ?>" alt="" />
+          <?php else: ?>
+            <img class="mx-auto dp-1" id="homeDp" src="files/dp2.png" alt="" />
+          <?php endif; ?>
+
         </div>
       </div>
     </section>
@@ -91,55 +130,31 @@
       <div class="md:flex w">
         <!-- img div  -->
         <div class="halfWidth w-2/5">
-          <img class="dpImage" src="files/dp.png" alt="" />
+          
+          <?php if (isset($personalInfo['image2']) && $personalInfo['image2']): ?>
+            <img class="dpImage" src="<?php echo $personalInfo['image2']; ?>" alt="" />
+          <?php else: ?>
+            <img class="dpImage" src="files/dp.png" alt="" />
+          <?php endif; ?>
+
         </div>
         <div class="halfWidth md:ml-3 md:pl-3 textContainer">
           <div class="aboutText">
-            <p>
-              Hi, my name is <span class="font-semibold">Hasibul Hasan Rupok</span>. I am a lecturer (of CSE
-              Department), full stack web developer and machine learning enthusiast. I am from Dhaka, Bangladesh.
-              Currently, I have complited my bachelor degree in Computer Science and Engineering
-              from the Department of Computer Science and Engineering, United International University.
-            </p>
-            <p>
-              I am also a Java & Python based application developer, and my interests lie in Digital Image
-              Processing
-              and Deep Learning. I spend my whole day, practically every day, experimenting with Reinforcement Learning,
-              Digital Image Processing and Web-3.0
-            </p>
-            <p>
-              I am inquisitive and enjoy work that pushes me to learn new things and stretch in new directions. I make
-              every effort to stay on top of changes in the state of the art so that I can meet challenges with tools
-              that are well suited to the task at hand.
-            </p>
-            <p>
-              The list of projects that I have on my <a href="https://github.com/HasibulRupok" target="_blank"><span
-                  class="font-semibold github">GitHub</span></a> will
-              give you a good idea about my work.
-            </p>
+            <?php if (isset($personalInfo['aboutMe']) && $personalInfo['aboutMe']): ?>
+              <?php echo $personalInfo['aboutMe']; ?>
+            <?php endif; ?>
           </div>
 
           <!-- skill section  -->
           <div class="skillContainer">
             <h3 class="text-2xl font-semibold skillTitle">Skills</h3>
             <div class="skillList">
-              <p class="eachSkill">C</p>
-              <p class="eachSkill">CPP</p>
-              <p class="eachSkill">JAVA</p>
-              <p class="eachSkill">Python</p>
-              <p class="eachSkill">Tensorflow</p>
-              <p class="eachSkill">MIPS</p>
-              <p class="eachSkill">HTML</p>
-              <p class="eachSkill">cSS</p>
-              <p class="eachSkill">Bootstrap</p>
-              <p class="eachSkill">Tailwind</p>
-              <p class="eachSkill">Java Script</p>
-              <p class="eachSkill">jquery</p>
-              <p class="eachSkill">AJAX</p>
-              <p class="eachSkill">PHP</p>
-              <p class="eachSkill">SQL</p>
-              <p class="eachSkill">micro python</p>
-              <p class="eachSkill">Django</p>
+              <!-- <p class="eachSkill">C</p> -->
+
+              <?php foreach($skills as $skill): ?>
+                <p class="eachSkill"><?php echo $skill['skillName'];  ?></p>
+              <?php endforeach; ?>
+
             </div>
           </div>
 
@@ -480,26 +495,48 @@
         <div class="splitContact myInfo">
           <div>
             <h3>Email</h3>
-            <p>hasibul.rupok@gmail.com</p>
+            <p class="phone-email"><?php echo $personalInfo['email1']; ?></p>
+
+            <?php if (isset($personalInfo['email2']) && $personalInfo['email2']): ?>
+              <p class="phone-email"><?php echo $personalInfo['email2']; ?></p>
+            <?php endif; ?>
           </div>
 
           <div>
-            <h3>Phone</h3>
-            <p>+880 1798085879</p>
+            <h3>Phone</h3> 
+
+            <?php if (isset($personalInfo['phone1']) && $personalInfo['phone1']): ?>
+              <p class="phone-email"><?php echo $personalInfo['phone1']; ?></p>
+            <?php endif; ?>
+
+            <?php if (isset($personalInfo['phone2']) && $personalInfo['phone2']): ?>
+              <p class="phone-email"><?php echo $personalInfo['phone2']; ?></p>
+            <?php endif; ?>
           </div>
 
           <div class="followMe">
             <h3>Follow Me</h3>
             <div class="socialMedia">
-              <a href="https://www.facebook.com/rupok.4/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
 
-              <a href="https://www.instagram.com/hasibul_rupok/" target="_blank"><i
-                  class="fa-brands fa-instagram"></i></a>
-              <a href="https://www.youtube.com/channel/UCI_i7XC4bYxkbcmS3RhVueg" target="_blank"><i
-                  class="fa-brands fa-youtube"></i></a>
-              <a href="https://www.linkedin.com/in/hasibul-rupok/" target="_blank"><i
-                  class="fa-brands fa-linkedin"></i></a>
-              <a href="https://github.com/HasibulRupok" target="_blank"><i class="fa-brands fa-github"></i></a>
+              <?php if (isset($personalInfo['linkedin']) && $personalInfo['linkedin']): ?>
+                <a href="<?php echo $personalInfo['linkedin']; ?>" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+              <?php endif; ?>
+
+              <?php if (isset($personalInfo['github']) && $personalInfo['github']): ?>
+                <a href="<?php echo $personalInfo['github']; ?>" target="_blank"><i class="fa-brands fa-github"></i></a>
+              <?php endif; ?>
+
+              <?php if (isset($personalInfo['youtube']) && $personalInfo['youtube']): ?>
+                <a href="<?php echo $personalInfo['youtube']; ?>" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+              <?php endif; ?>
+
+              <?php if (isset($personalInfo['facebook']) && $personalInfo['facebook']): ?>
+                <a href="<?php echo $personalInfo['facebook']; ?>" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+              <?php endif; ?>
+
+              <?php if (isset($personalInfo['instagram']) && $personalInfo['instagram']): ?>
+                <a href="<?php echo $personalInfo['instagram']; ?>" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+              <?php endif; ?>
 
             </div>
           </div>
