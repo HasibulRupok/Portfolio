@@ -1,0 +1,41 @@
+.bodySection {
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 5px 3rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 80vh;
+    width: 90%;
+    color: #18393C !important;
+}
+
+/* carosel  */
+.caroselCustom{
+    height: 50vh !important;
+    width: 60% !important;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+}
+.carousel-item > img{
+    height: 50vh !important;
+    width: 100% !important;
+    object-fit: cover !important;
+}
+
+/* infos */
+#title{
+    font-weight: 700;
+    color: #18393ce5 !important;
+}
+#details{
+    margin-top: 1rem;
+    text-align: justify;
+    line-height: -10px;
+}

@@ -1,0 +1,244 @@
+#about-me-section {
+  margin-bottom: 3rem;
+}
+
+#profile-info-buttons-container {
+  margin-bottom: 2rem;
+  margin-left: 7% !important;
+}
+
+.bodySection {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.topTitle {
+  font-weight: 700;
+  font-size: 2rem;
+  margin: 1rem 0 1rem 37%;
+  display: inline-block;
+}
+
+.dpImage {
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.aboutText>p {
+  line-height: 0.7cm;
+  margin-bottom: 0.5rem;
+  font-size: large;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.textContainer {
+  margin-left: 2rem;
+  word-wrap: break-word;
+  max-width: 60%;
+}
+
+.skillContainer {
+  margin: 2rem 0;
+}
+
+.eachSkill {
+  width: fit-content;
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 4px 18px;
+  border-radius: 12px;
+  margin: 5px 5px;
+  text-transform: capitalize;
+  transition: 0.2s;
+}
+
+.eachSkill:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.skillTitle {
+  margin: 1rem 0;
+}
+
+/* edu exp section  */
+.expButton {
+  margin-right: 1rem;
+  color: rgba(102, 97, 97, 0.733);
+  transition: 0.2s;
+}
+
+.expButton:hover {
+  border-bottom: 1px solid rgba(102, 97, 97, 0.733);
+}
+
+.activeExpButton {
+  color: #f03b6b;
+  border-bottom: 1px solid #f03b6b;
+}
+
+.activeExpButton:hover {
+  border-bottom: 1px solid #f03b6b;
+}
+
+/* education description bad  
+-----------------------------
+-----------------------------*/
+.timeline {
+  position: relative;
+  max-width: 100%;
+  margin: 0 auto;
+  margin-top: 1rem;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  background-color: #f03b6b;
+  top: 5%;
+  bottom: 3%;
+  left: 2%;
+  margin-left: -3px;
+}
+
+/* Container around content */
+.container {
+  padding: 5px 0px;
+  position: relative;
+  background-color: inherit;
+  width: 100%;
+}
+
+/* The circles on the timeline */
+.container::after {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  right: -17px;
+  background-color: #f03b6b;
+  /* border: 4px solid #ff9f55; */
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* Place the container to the right */
+.right {
+  left: 3%;
+}
+
+/* Fix the circle for containers on the right side */
+.right::after {
+  left: -16px;
+}
+
+
+
+/* The actual content */
+.content {
+  padding: 5px 10px;
+  background-color: transparent;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.content>h3 {
+  color: #f03b6b;
+  margin-bottom: 6px;
+}
+
+.content>h2 {
+  font-size: x-large;
+  font-weight: 600;
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+
+.content>h2>span {
+  font-size: large;
+  font-weight: 600;
+  columns: rgba(36, 56, 58, 0.274);
+}
+
+.content>p {
+  line-height: 1.5;
+}
+
+.publication-view-link>a {
+  color: rgba(26, 138, 193, 0.82);
+  text-decoration: underline;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.publication-view-link>a:hover {
+  color: rgba(42, 173, 239, 0.82);
+
+}
+
+.display-None {
+  display: none;
+}
+
+.github {
+  color: rgb(2 132 199);
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .halfWidth {
+    width: 90%;
+    margin: 0 auto 1rem auto;
+  }
+
+  .textContainer {
+    margin-top: 1rem;
+    margin-left: 0;
+    max-width: 100%;
+  }
+
+  .topTitle {
+    margin: 1rem auto;
+    text-align: center;
+    display: block;
+  }
+
+  .aboutText {
+    width: 99%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .right::after {
+    left: -13px;
+  }
+
+  .aboutText>p {
+    line-height: normal;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    font-size: large;
+  }
+
+  #profile-info-buttons-container {
+    margin-bottom: 2rem;
+    margin-left: 10px !important;
+  }
+}

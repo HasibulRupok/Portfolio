@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../dist/output.css" />
+    <link rel="stylesheet" href="../css/navAndHome.css" />
+    <link rel="stylesheet" href="../css/profile.css" />
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="../css/all.css" />
+    <title>Rupok | Profile</title>
+  </head>
+  <body>
+    <!-- total section  -->
+    <section class="w-11/12 mx-auto h-5/6 my-auto bodySection">
+      <!-- navbar -->
+      <nav class="bg-transparent navBar">
+        <ul
+          class="list-none lg:flex lg:justify-end md:flex md:justify-end navWidthSm"
+          id="liContainer"
+        >
+          <li class="mx-2 px-2" id="homeBtn">
+            <a href="../index.html">Home</a>
+          </li>
+          <li class="mx-2 px-2 activePage">
+            <button id="profileBtn" href="">Profile</button>
+          </li>
+          <li class="mx-2 px-2"><a href="">Profile</a></li>
+          <li class="mx-2 px-2"><a href="">Profile</a></li>
+          <li class="mx-2 px-2"><a href="">Profile</a></li>
+        </ul>
+        <button class="resNavBtn md:hidden text-xl" id="menuButton">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </nav>
+
+      <!-- about me section  -->
+      <h1 class="topTitle">About Me</h1>
+
+      <!-- image and text div  -->
+      <div class="md:flex w">
+        <!-- img div  -->
+        <div class="halfWidth w-2/5">
+          <img class="dpImage" src="../files/dp.png" alt="" />
+        </div>
+        <div class="halfWidth md:ml-3 md:pl-3 textContainer">
+          <div class="aboutText">
+            <p>
+              Hello i am Hasibul Hasan Rupok, i am a student and a self talk
+              application developer. Lorem ipsum dolor sit amet consectetur
+              adipisicing elit. Aliquam voluptatem iusto optio quas labore sint
+              eligendi numquam aut repudiandae. Molestias ipsum quos quisquam
+              blanditiis? Error illo minus necessitatibus tenetur nostrum
+              voluptas reprehenderit dicta veritatis laudantium? Lorem ipsum
+              dolor sit amet consectetur adipisicing elit. Nostrum, ullam autem
+              ratione sint quisquam explicabo quidem! Ipsa dolorum unde
+              explicabo porro voluptate quidem, deleniti totam aperiam, sunt
+              mollitia soluta molestiae.
+            </p>
+          </div>
+
+          <!-- skill section  -->
+          <div class="skillContainer">
+            <h3 class="text-2xl font-semibold skillTitle">Skills</h3>
+            <div class="skillList">
+              <p class="eachSkill">C</p>
+              <p class="eachSkill">CPP</p>
+              <p class="eachSkill">JAVA</p>
+              <p class="eachSkill">Python</p>
+              <p class="eachSkill">Tensorflow</p>
+              <p class="eachSkill">MIPS</p>
+              <p class="eachSkill">HTML</p>
+              <p class="eachSkill">cSS</p>
+              <p class="eachSkill">Bootstrap</p>
+              <p class="eachSkill">Tailwind</p>
+              <p class="eachSkill">Java Script</p>
+              <p class="eachSkill">jquery</p>
+              <p class="eachSkill">AJAX</p>
+              <p class="eachSkill">PHP</p>
+              <p class="eachSkill">SQL</p>
+              <p class="eachSkill">micro python</p>
+            </div>
+          </div>
+
+          <!-- education exp  -->
+          <div>
+            <div>
+              <button class="text-2xl expButton activeExpButton" id="educationBtn">
+                Education
+              </button>
+              <button class="text-2xl expButton" id="experienceBtn">Experience</button>
+            </div>
+
+            <!-- education description -->
+            <div class="timeline " id="educationTab" style="display:block;">
+              <!-- Each education  -->
+              <div class="container right" id="">
+                <div class="content">
+                  <h3>2016 - 2017</h3>
+                  <h2>
+                    Secondary School Cirtificate -
+                    <span>MJF School & College</span>
+                  </h2>
+                  <p>
+                    GPA 5.00 out of 5.00, Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit. Exercitationem, sed error dicta
+                    necessitatibus repudiandae similique?
+                  </p>
+                </div>
+              </div>
+
+              <!-- Hsc -->
+              <div class="container right" id="">
+                <div class="content">
+                  <h3>2017 - 2019</h3>
+                  <h2>
+                    Higher Secondary School Cirtificate -
+                    <span>MJF School & College</span>
+                  </h2>
+                  <p>
+                    GPA 5.00 out of 5.00, Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit. Exercitationem, sed error dicta
+                    necessitatibus repudiandae similique?
+                  </p>
+                </div>
+              </div>
+
+              <!-- Bsc -->
+              <div class="container right" id="">
+                <div class="content">
+                  <h3>2020 - Ongoing</h3>
+                  <h2>
+                    Bsc in Computer Science & Engineering -
+                    <span>United International Unitersity</span>
+                  </h2>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Exercitationem, sed error dicta necessitatibus repudiandae
+                    similique?
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- end of education timeline -->
+
+            <!-- Experience start -->
+            <div class="timeline" id="experienceTab" style="display: none ;">
+              <div class="container right" id="">
+                <div class="content">
+                  <h3>Since 2020</h3>
+                  <h2>
+                    Web Development -
+                    <span>More than 1.5 years</span>
+                  </h2>
+                  <p>
+                    I started my web-development journy since 2020, till now i'm trying to learn the new thing and also trying to Web-3.0
+                  </p>
+                </div>
+              </div>
+
+              <div class="container right" id="">
+                <div class="content">
+                  <h3>Since 2021</h3>
+                  <h2>
+                    IOT -
+                    <span>More than 1 year</span>
+                  </h2>
+                  <p>
+                    I started my IOT journy since 2021, after that i have build some IOT projects some of them are amature level but some of them are really good.
+                  </p>
+                </div>
+              </div>
+
+
+              <div class="container right" id="">
+                <div class="content">
+                  <h3>Since 2022</h3>
+                  <h2>
+                    Android Development -
+                    <span>More than 6 months</span>
+                  </h2>
+                  <p>
+                    I started my web-development journy since January 2022, and still learning the new things.
+                  </p>
+                </div>
+              </div>
+
+              <div class="container right" id="">
+                <div class="content">
+                  <h3>Since 2022</h3>
+                  <h2>
+                    Machine Learning -
+                    <span>More than 1 year</span>
+                  </h2>
+                  <p>
+                    I started my IOT journy since 2022, with some of my friends my build some awesome projects, one of them is nominated for Bangla Font Recognizer-2022.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- Experience End -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="../js/navAndHome.js"></script>
+    <script src="../js/profile.js"></script>
+  </body>
+</html>
