@@ -3,28 +3,52 @@
 
   $personalInfo = null;
   $skills = null;
+  $errors = "";
   try {
     // Query for personal info 
     $statement = $pdo->prepare("SELECT * FROM `personal-info` WHERE 1");
     $statement->execute();
     $personalInfo = $statement->fetch(PDO::FETCH_ASSOC);
 
-    if(!$personalInfo){
-      echo "No personal data found";
-    }
-
     // Query for skills 
     $statement = $pdo->prepare("SELECT * FROM `skills` WHERE 1");
     $statement->execute();
     $skills = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-    if(!$skills){
-      echo "No skill data found";
-    }
+    // Query for education
+    $statement = $pdo->prepare("SELECT * FROM `education` ORDER BY `priority` ASC;");
+    $statement->execute();
+    $educations = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+    // Query for experiance
+    $statement = $pdo->prepare("SELECT * FROM `experiance` ORDER BY `priority` ASC;");
+    $statement->execute();
+    $experiances = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+    // Query for award
+    $statement = $pdo->prepare("SELECT * FROM `award` ORDER BY `priority` ASC;");
+    $statement->execute();
+    $awards = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+    // Query for Publication
+    $statement = $pdo->prepare("SELECT * FROM `publication` ORDER BY `priority`ASC;");
+    $statement->execute();
+    $publications = $statement->fetchAll(PDO::FETCH_ASSOC);
 
     
   } catch (PDOException $e) {
-    echo "Query failed: " . $e->getMessage();
+    if(!$personalInfo){
+      $errors = $errors . "No personal data found ";
+    }
+    if(!$skills){
+      $errors = $errors . "No skill data found ";
+    }
+    if(!$educations){
+      $errors = $errors . "No education data found ";
+    }
+
+    header("Location: pages/error.php?error=" . urlencode($errors));
+    exit();
   }
 
   // echo '<pre>'; var_dump($skills); echo '</pre>';
@@ -177,38 +201,20 @@
       </div>
       <!-- Education -->
       <div class="timeline" id="educationTab" style="display:block;">
-        <div class="container right">
-
-          <div class="content">
-            <h3>2020 - 2023</h3>
-            <h2>
-              Bsc in Computer Science & Engineering -
-              <span>United International Unitersity</span>
-            </h2>
-            <p>
-              I'm really enjoying my study with my university, my favorite subjects are Data Structure and
-              Algorithm, Digital Image Processing, Deep Learning, Artifical Intelligence. I enjoy the theory
-              courses but i love to practice the thing that i learn in the theory courses in the lab. My
-              favourite
-              language is JAVA but I also comfortable with CPP, Python.
-            </p>
+        <?php foreach($educations as $education): ?>
+          <div class="container right">
+            <div class="content">
+              <h3><?php echo $education['duration']; ?></h3>
+              <h2>
+              <?php echo $education['degree']; ?> -
+                <span><?php echo $education['institution']; ?></span>
+              </h2>
+              <p><?php echo $education['description']; ?></p>
+            </div>
           </div>
+        <?php endforeach; ?>
 
-        </div>
-        <div class="container right">
-          <div class="content">
-            <h3>2017 - 2019</h3>
-            <h2>
-              Higher Secondary School certificate -
-              <span>MJF School & College</span>
-            </h2>
-            <p>
-              GPA 5.00 out of 5.00 from Science group, my favourite subject was Higher-Mathematics, I used to
-              practice math minimum 20 hours in a week. I passed from MJF School and College, Shariatpur.
-            </p>
-          </div>
-        </div>
-        <div class="container right">
+        <!-- <div class="container right">
           <div class="content">
             <h3>2016 - 2017</h3>
             <h2>
@@ -220,30 +226,26 @@
               College, Shariatpur.
             </p>
           </div>
-        </div>
+        </div> -->
+
       </div>
 
       <!-- Experience -->
       <div class="timeline" id="experienceTab" style="display:none;">
-        <div class="container right">
-
-          <div class="content">
-            <h3>January 2024 to Ongoing</h3>
-            <h2>
-              Lecturer at the Department of CSE -
-              <span>United International University</span>
-            </h2>
-            <p>
-              After completing my bachelor degree, i have joined here as a lecturer (in contract), currently i am taking
-              Data Stracture & Algorithm, Structure Programming Language, Digital Logic Design, Theory of Computation,
-              Discrete Mathematics, and Introduction to Computer Science courses.
-            </p>
+        <?php foreach($experiances as $experiance): ?>
+          <div class="container right">
+            <div class="content">
+              <h3><?php echo $experiance['duration']; ?></h3>
+              <h2>
+                <?php echo $experiance['title']; ?> -
+                <span><?php echo $experiance['organization']; ?></span>
+              </h2>
+              <p> <?php echo $experiance['description']; ?> </p>
+            </div>
           </div>
+        <?php endforeach; ?>
 
-        </div>
-
-        <div class="container right">
-
+        <!-- <div class="container right">
           <div class="content">
             <h3>Fall 2022</h3>
             <h2>
@@ -256,52 +258,22 @@
               course.
             </p>
           </div>
-
-        </div>
-        <div class="container right">
-          <div class="content">
-            <h3>Since 2023</h3>
-            <h2>
-              Full Stack Web Development -
-              <span>More than 1.5 years</span>
-            </h2>
-            <p>
-              I started my web-development journey since 2020, till now i'm trying to learn the new thing and
-              also
-              trying to Web-3.0
-            </p>
-          </div>
-        </div>
-        <div class="container right">
-          <div class="content">
-            <h3>Summer 2023 - Fall 2023</h3>
-            <h2>
-              Grader at the Department of CSE -
-              <span>United International University</span>
-            </h2>
-            <p>
-              I worked here for 2 semester as a grader, where i checked the answer script and prepared the grade sheet.
-            </p>
-          </div>
-        </div>
+        </div> -->
+        
       </div>
 
       <!-- Award -->
       <div class="timeline" id="awardTab" style="display:none;">
-        <div class="container right">
-
-          <div class="content">
-            <h3>2 January 2023</h3>
-            <h2>First Runner Up - <span>CSE project show Fall 2022</span></h2>
-            <p>
-              It was a project for System Analysis and Design lab course named 'Tour Planner'. It is a web
-              bassed application which will help a person for planning a tour to end a tour.
-            </p>
+        <?php foreach($awards as $award): ?>
+          <div class="container right">
+            <div class="content">
+              <h3><?php echo $award['time'];?></h3>
+              <h2><?php echo $award['placement'];?> - <span><?php echo $award['competation'];?></span></h2>
+              <p><?php echo $award['description'];?></p>
+            </div>
           </div>
-
-        </div>
-        <div class="container right">
-
+        <?php endforeach; ?>
+        <!-- <div class="container right">
           <div class="content">
             <h3>2 January 2023</h3>
             <h2>First Runner Up - <span>CSE project show Fall 2022</span></h2>
@@ -312,70 +284,28 @@
               silgle click.
             </p>
           </div>
-
-        </div>
-        <div class="container right">
-
-          <div class="content">
-            <h3>19 September 2022</h3>
-            <h2>Second Runner Up - <span>CSE project show Summer 2022</span></h2>
-            <p>
-              It was a project for Database Management System Labratory course, the project was a baby sitter
-              applycation maned BabySitter BD. User can take care of babies and also can hire someone to take
-              care
-              of his/her baby. Project is available on my GitHub.
-            </p>
-          </div>
-
-        </div>
-        <div class="container right">
-
-          <div class="content">
-            <h3>August 2016</h3>
-            <h2>Champion - <span> Science Fair 2016</span></h2>
-            <p>
-              I made a project on renewable fuel, where we can produce gassoline from some renewable source,
-              this
-              project became first on that category.
-            </p>
-          </div>
-
-        </div>
-        <div class="container right">
-
-          <div class="content">
-            <h3>February 2016</h3>
-            <h2>Champion - <span> National Electricity and Fuel Week 2016 Speech Competition</span></h2>
-            <p>
-              In 2016 there was a nationally arranged Speech Competition on electricity and fuel, i participate
-              on
-              that competition and grab the first position.
-            </p>
-          </div>
-
-        </div>
+        </div> -->
 
       </div>
 
       <!-- Publication -->
       <div class="timeline" id="publicationTab" style="display:none;">
-        <div class="container right">
-
-          <div class="content">
-            <h3>27 April, 2024</h3>
-            <h2>ElectroSortNet: A Novel CNN Approach for E-Waste Classification and IoT-Driven Separation System.
-              <span></span>
-            </h2>
-            <p>
-              Author(s): <strong>Hasibul Hasan Rupok</strong>, Nahian Sourov, Sanjida Jannat Anannaya, Amina Afroz,
-              Mahmudul Hasan Bipul, Md. Motaharul Islam.
-            </p>
-            <div class="publication-view-link">
-              <a href="https://ieeexplore.ieee.org/abstract/document/10561784" target="_blank">View</a>
+        <?php foreach($publications as $publication): ?>
+          <div class="container right">
+            <div class="content">
+              <h3><?php echo $publication['date']; ?></h3>
+              <h2><?php echo $publication['title']; ?>
+                <span></span>
+              </h2>
+              <p>
+              Author(s): <?php echo $publication['author']; ?>
+              </p>
+              <div class="publication-view-link">
+                <a href="<?php echo $publication['link']; ?>" target="_blank">View</a>
+              </div>
             </div>
           </div>
-
-        </div>
+        <?php endforeach; ?>
       </div>
     </section>
 

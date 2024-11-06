@@ -4,7 +4,9 @@ try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     // echo "Connection successful!";
 } catch (PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
+    $errors = "Backend Failed";
+    header("Location: pages/error.php?error=" . urlencode($errors));
+    exit();
 }
 
 ?>

@@ -1,0 +1,228 @@
+@keyframes zoomInOut {
+
+    0%,
+    100% {
+      transform: scale(0.5);
+    }
+  
+    50% {
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes bounceTop {
+  
+    0%,
+    100% {
+      transform: translateY(-50px);
+    }
+  
+    50% {
+      transform: translateY(0px);
+    }
+  }
+  
+  
+  body {
+    background-image: linear-gradient(to bottom right, #efa2b4, #f87878);
+    /* background-image: linear-gradient(to left top #e9aca7, #B4ECD6); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    color: #18393c;
+    line-height: 2;
+  }
+  
+  body::before {
+    content: "";
+    position: fixed;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #cddc39;
+    z-index: -1;
+    opacity: 0.15;
+  }
+  
+  :root {
+    --backdrop-filter: blur(5px);
+  }
+  
+  .bodySection {
+    /* background-color: rgba(255, 255, 255, 0.25); */
+    background-color: rgba(226, 174, 174, 0.25);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+  
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  
+    padding: 5px 3rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  
+  /* background circles */
+  .bg-circles {
+    position: fixed;
+    top: 0;
+    height: 100%;
+    max-width: 1200px;
+    width: calc(100% - 30px);
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .bg-circles div {
+    position: absolute;
+    border-radius: 50%;
+  }
+  
+  .bg-circles .circle-1 {
+    height: 60px;
+    width: 60px;
+    background-color: blue;
+    left: 2%;
+    top: 15%;
+    opacity: 0.08;
+    animation: zoomInOut 8s linear infinite;
+  }
+  
+  .bg-circles .circle-2 {
+    height: 80px;
+    width: 80px;
+    background-color: #af2b4aa1;
+    left: 30%;
+    top: 50%;
+    opacity: 0.4;
+    animation: bounceTop 5s ease-in-out infinite;
+  }
+  
+  .bg-circles .circle-3 {
+    height: 120px;
+    width: 120px;
+    background-color: rgba(240, 31, 94, 0.521);
+    left: 98%;
+    top: 40%;
+    opacity: 0.4;
+    animation: zoomInOut 8s linear infinite;
+  }
+  
+  .bg-circles .circle-4 {
+    height: 40px;
+    width: 40px;
+    background-color: orange;
+    left: -70px;
+    top: 70%;
+    opacity: 0.4;
+    /* animation: bounceTop 5s ease-in-out infinite; */
+  }
+  
+  ::-webkit-scrollbar {
+    width: 0px;
+  }
+  
+  .resNavBtn {
+    position: fixed;
+    top: 2%;
+    right: 3%;
+    margin: 5px 0 0 0;
+  }
+  
+  nav {
+    padding: 5px 15px;
+  }
+  
+  #menuButton {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+  }
+  
+  #homeSection {
+    height: 100vh !important;
+  }
+  
+  .activePage {
+    border-bottom: 1px solid black;
+  }
+
+
+  #homeBtn{
+    background-color: rgba(63, 98, 18, 0.685);
+    color: rgb(201, 201, 201);
+
+    box-shadow: -1px 1px 39px -4px rgba(0, 238, 255, 0.50);
+    -webkit-box-shadow: -1px 1px 39px -4px rgba(0, 238, 255, 0.50);
+    -moz-box-shadow: -1px 1px 39px -4px rgba(0, 238, 255, 0.50);
+    transition: 0.1s;
+  }
+  #homeBtn:hover{
+    /* background-color: rgba(81, 126, 22, 0.685); */
+    box-shadow: -1px 1px 39px -4px rgba(81, 126, 22, 0.685);
+    -webkit-box-shadow: -1px 1px 39px -4px rgba(81, 126, 22, 0.685);
+    -moz-box-shadow: -1px 1px 39px -4px rgba(81, 126, 22, 0.685);
+  }
+
+  @media (max-width: 768px) {
+    .navWidthSm {
+      width: fit-content;
+      margin: 0 auto;
+      display: none;
+      position: fixed;
+      top: 10%;
+      right: 3%;
+      z-index: 1;
+      padding: 1rem 3rem;
+  
+      background-color: rgba(255, 255, 255, 0.3);
+      border-radius: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+  
+    }
+  
+    .homeInSmall {
+      display: block;
+      /* flex-direction: column-reverse; */
+    }
+  
+  
+    .homeSplit {
+      width: 95%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  
+    #homeSection {
+      flex-direction: column-reverse;
+      height: fit-content !important;
+      margin-bottom: 8rem;
+      margin-top: 4rem;
+    }
+    
+    .vertically-Center {
+      margin: 0;
+      position: absolute;
+      top: 0;
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+    }
+  
+    .bodySection {
+      height: 95% !important;
+      overflow-y: auto;
+      padding: 1rem;
+    }
+  
+    .displayBlock {
+      display: block;
+    }
+  
+
+  }
