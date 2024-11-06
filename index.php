@@ -108,6 +108,49 @@
   <link rel="stylesheet" href="css/footer.css">
   
   <title>Hasibul Hasan Rupok | Lecturer, Developer, and ML Enthusiast</title>
+
+  <!-- Structured Data (JSON-LD for Rich Results) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Hasibul Hasan Rupok",
+    "jobTitle": ["Lecturer", "Full Stack Web Developer", "Machine Learning Enthusiast"],
+    "url": "http://www.hasibul-rupok.com/",
+    "sameAs": [
+      "https://www.facebook.com/rupok.4/",
+      "https://www.instagram.com/hasibul_rupok/",
+      "https://www.youtube.com/channel/UCI_i7XC4bYxkbcmS3RhVueg",
+      "https://www.linkedin.com/in/hasibul-rupok/",
+      "https://github.com/HasibulRupok"
+    ],
+    "image": "http://www.hasibul-rupok.com/files/myImage/WhiteShirt.png",
+    "worksFor": [
+      {
+        "@type": "Organization",
+        "name": "Uttara University",
+        "department": "CSE",
+        "jobTitle": "Lecturer"
+      },
+      {
+        "@type": "Organization",
+        "name": "United International University",
+        "department": "CSE",
+        "jobTitle": "Contractual Lecturer"
+      }
+    ],
+    "alumniOf": {
+      "@type": "University",
+      "name": "United International University",
+      "sameAs": "https://www.uiu.ac.bd/"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Dhaka",
+      "addressCountry": "Bangladesh"
+    }
+  }
+  </script>
 </head>
 
 <!-- oncontextmenu="return false" -->
