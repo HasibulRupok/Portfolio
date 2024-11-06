@@ -58,8 +58,35 @@
 <html lang="en">
 
 <head>
-  <!-- SEO  -->
-  <meta name="title" content="Hasibul Hasan Rupok" />
+  <!-- SEO Meta Tags -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="title" content="Hasibul Hasan Rupok | Lecturer, Developer, and ML Enthusiast" />
+  <meta name="description" content="Portfolio of Hasibul Hasan Rupok, a lecturer in CSE, full stack web developer, and machine learning enthusiast from Dhaka, Bangladesh." />
+  <meta name="keywords" content="Hasibul Hasan Rupok, lecturer, web developer, machine learning, full stack, portfolio, projects, CSE, Dhaka, Bangladesh" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Hasibul Hasan Rupok" />
+  <link rel="canonical" href="http://www.hasibul-rupok.com/" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="http://www.hasibul-rupok.com/" />
+  <meta property="og:title" content="Hasibul Hasan Rupok | Lecturer, Developer, and ML Enthusiast" />
+  <meta property="og:description" content="Discover the work of Hasibul Hasan Rupok, lecturer in CSE, web developer, and machine learning enthusiast from Dhaka." />
+  <meta property="og:image" content="http://www.hasibul-rupok.com/files/myImage/WhiteShirt.png" />
+
+  <!-- Twitter  -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="http://www.hasibul-rupok.com/" />
+  <meta property="twitter:title" content="Hasibul Hasan Rupok | Lecturer, Developer, and ML Enthusiast" />
+  <meta property="twitter:description" content="Explore the portfolio of Hasibul Hasan Rupok, an educator (lecturer in CSE), developer, and researcher in machine learning and web development." />
+  <meta property="twitter:image" content="http://www.hasibul-rupok.com/files/myImage/WhiteShirt.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="files/tabIcon.png">
+
+  <!-- ****** Old SEO ******* -->
+  <!-- <meta name="title" content="Hasibul Hasan Rupok" />
   <meta name="description"
     content="Hi, my name is Hasibul Hasan Rupok. I am a full stack web developer and machine learning enthusiast. I am from Dhaka, Bangladesh. Currently, I am pursuing my bachelor degree in Computer Science and Engineering from the Department of Computer Science and Engineering, United International University." />
   <meta name="keywords"
@@ -68,28 +95,22 @@
   <meta property="og:title" content="Hasibul Hasan Rupok" />
   <meta property="og:description"
     content="Hasibul Hasan Rupok, Hasibul, Hasan, Rupok, Hasibul Rupok, Web developer, bangladeshi web-development, bangladeshi web development, bangladeshi developer, java developer, bangladeshi java developer, bangladeshi java app developer, python developer, bangladeshi python developer, bangladeshi python app developer, best bangladeshi web developer, best bangladeshi java developer, best bangladeshi python developer, best bangladeshi developer, best bangladeshi application developer, best bangladeshi app developer" />
-
   <meta name="brand_name" content="Hasibul Hasan Rupok" />
-  <meta name="author" content="Hasibul Hasan Rupok" />
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="files/tabIcon.png">
+  <meta name="author" content="Hasibul Hasan Rupok" /> -->
+  <!-- ******* old SEO end ****** -->
 
-  <!-- tailwind -->
-  <link rel="stylesheet" href="dist/output.css" />
-  <!-- font-awesome -->
-  <link rel="stylesheet" href="css/all.css" />
+  <link rel="stylesheet" href="dist/output.css" /> <!-- tailwind -->
+  <link rel="stylesheet" href="css/all.css" /> <!-- font-awesome -->
   <!-- custom css -->
   <link rel="stylesheet" href="css/index.css" />
-  <!-- <link rel="stylesheet" href="../css/navAndHome.css" /> -->
   <link rel="stylesheet" href="css/profile.css" />
   <link rel="stylesheet" href="css/aboutMeDetail.css">
   <link rel="stylesheet" href="css/footer.css">
-  <title>Hasibul Hasan Rupok</title>
+  
+  <title>Hasibul Hasan Rupok | Lecturer, Developer, and ML Enthusiast</title>
 </head>
 
 <!-- oncontextmenu="return false" -->
-
 <body oncontextmenu="return true">
   <section class="bg-circles">
     <div class="circle-1"></div>
